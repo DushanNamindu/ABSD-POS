@@ -10,33 +10,32 @@ import {ViewAllComponent} from './view/view-all/view-all.component';
 import {DashboardComponent} from './view/dashboard/dashboard.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import {SideBarComponent} from './view/side-bar/side-bar.component';
 
 
 const routes: Routes = [
   {
     path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'customer',
-    component: CustomerComponent
-  },
-  {
-    path: 'item',
-    component: ItemComponent
-  },
-  {
-    path: 'header',
-    component: HeaderComponent
-  },
-  {
-    path: 'viewAll',
-    component: ViewAllComponent
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'customer',
+        component: CustomerComponent,
+      },
+      {
+        path: 'item',
+        component: ItemComponent
+      },
+      {
+        path: 'order',
+        component: OrderComponent
+      },
+    ]
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'header'
+    redirectTo: 'dashboard'
   }
 ];
 
@@ -48,7 +47,8 @@ const routes: Routes = [
     ItemComponent,
     OrderComponent,
     ViewAllComponent,
-    DashboardComponent
+    DashboardComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
