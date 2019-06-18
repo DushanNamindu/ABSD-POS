@@ -1,0 +1,7 @@
+.ng-valid:not(form){
+  border-bottom: 5px solid crimson;
+}
+
+.ng-invalid:not(form){
+  border-bottom: 5px solid green;
+}
