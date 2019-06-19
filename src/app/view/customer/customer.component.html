@@ -21,9 +21,9 @@
     </div>
     <button type="submit" class="btn btn-outline-primary" (click)="addCustomer()">Add Customer</button>
     &nbsp;
-    <button type="button" class="btn btn-outline-success">Update Customer</button>
+    <button type="button" class="btn btn-outline-success" *ngIf="isEdit" id="btnUpdate" (click)="updateCustomer()">Update Customer</button>
     &nbsp;
-    <button type="button" class="btn btn-outline-danger">Delete Customer</button>
+    <button type="button" class="btn btn-outline-danger" *ngIf="isEdit" id="btnDelete">Delete Customer</button>
   </form>
 </div>
 
@@ -41,7 +41,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let customer of customerList" (click)="getAllCustomers(customer)">
+    <tr *ngFor="let customer of customerList" (click)="getTextValue(customer)">
       <th>{{customer.id}}</th>
       <th>{{customer.name}}</th>
       <th>{{customer.address}}</th>

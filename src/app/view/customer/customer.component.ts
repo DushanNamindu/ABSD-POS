@@ -11,6 +11,7 @@ export class CustomerComponent implements OnInit {
 
   customerDto: CustomerDTO = new CustomerDTO();
   customerList: Array<CustomerDTO> = [];
+  isEdit = false;
 
   constructor(
     private customerService: CustomerService
@@ -21,8 +22,11 @@ export class CustomerComponent implements OnInit {
     this.getAllCustomers();
   }
 
-  alert(): void {
-    alert('Validation Success');
+  getTextValue(customer): void {
+    // alert('Validation Success');
+    this.isEdit = true;
+    const obj = new CustomerDTO();
+    this.customerDto = Object.assign(obj, customer);
   }
 
   addCustomer() {
@@ -50,4 +54,12 @@ export class CustomerComponent implements OnInit {
     });
   }
 
+  updateCustomer() {
+    this.customerService.updateCustomer(this.customerDto).subscribe(
+      result => {
+        if (result == null) {
+          alert('Customer Successfully Updated');
+        }
+      });
+  }
 }
