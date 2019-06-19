@@ -10,6 +10,7 @@ import {CustomerService} from '../../service/customer.service';
 export class CustomerComponent implements OnInit {
 
   customerDto: CustomerDTO = new CustomerDTO();
+  customerList: Array<CustomerDTO> = [];
 
   constructor(
     private customerService: CustomerService
@@ -17,6 +18,7 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllCustomers();
   }
 
   alert(): void {
@@ -38,6 +40,13 @@ export class CustomerComponent implements OnInit {
       } else {
         alert('Failed');
       }
+    });
+  }
+
+  getAllCustomers() {
+    this.customerService.getAllCustomers().subscribe(result => {
+      this.customerList = result;
+      console.log(JSON.stringify(result));
     });
   }
 

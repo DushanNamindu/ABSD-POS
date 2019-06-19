@@ -6,15 +6,18 @@
     <!--</div>-->
     <div class="form-group">
       <label><b>Name</b></label>
-      <input required name="txtName" class="form-control" type="text" placeholder="Name" [(ngModel)]="customerDto.name" pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
+      <input required name="txtName" class="form-control" type="text" placeholder="Name" [(ngModel)]="customerDto.name"
+             pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
     </div>
     <div class="form-group">
       <label><b>Address</b></label>
-      <input required name="txtAddress" class="form-control" type="text" placeholder="Address" [(ngModel)]="customerDto.address" pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
+      <input required name="txtAddress" class="form-control" type="text" placeholder="Address"
+             [(ngModel)]="customerDto.address" pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
     </div>
     <div class="form-group">
       <label><b>Mobile</b></label>
-      <input required name="txtMobile" class="form-control" type="text" placeholder="Mobile" [(ngModel)]="customerDto.mobile" pattern="[0][0-9]{9}">
+      <input required name="txtMobile" class="form-control" type="text" placeholder="Mobile"
+             [(ngModel)]="customerDto.mobile" pattern="[0][0-9]{9}">
     </div>
     <button type="submit" class="btn btn-outline-primary" (click)="addCustomer()">Add Customer</button>
     &nbsp;
@@ -28,7 +31,7 @@
 <br>
 
 <div>
-  <table class="table">
+  <table class="table table-hover table-bordered">
     <thead class="thead-dark">
     <tr>
       <th scope="col">Id</th>
@@ -38,6 +41,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr *ngFor="let customer of customerList" (click)="getAllCustomers(customer)">
+      <th>{{customer.id}}</th>
+      <th>{{customer.name}}</th>
+      <th>{{customer.address}}</th>
+      <th>{{customer.mobile}}</th>
+    </tr>
   </table>
 </div>
