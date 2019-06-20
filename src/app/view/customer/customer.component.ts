@@ -64,6 +64,7 @@ export class CustomerComponent implements OnInit {
           this.customerDto.name = '';
           this.customerDto.address = '';
           this.customerDto.mobile = '';
+          this.isEdit = false;
           this.getAllCustomers();
           alert('Customer Successfully Updated');
         } else {
@@ -78,6 +79,7 @@ export class CustomerComponent implements OnInit {
         this.customerDto.name = '';
         this.customerDto.address = '';
         this.customerDto.mobile = '';
+        this.isEdit = false;
         this.getAllCustomers();
         alert('Customer deleted successfully');
       } else {

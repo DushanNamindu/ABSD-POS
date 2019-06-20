@@ -14,10 +14,8 @@ export class CustomerService {
   }
 
   addCustomer(customerDTO: CustomerDTO): Observable<CustomerDTO> {
-    // console.log(JSON.stringify(customerDTO));
     return this.http.post<CustomerDTO>('http://localhost:8080/customer', customerDTO);
   }
-
 
   getAllCustomers(): Observable<Array<CustomerDTO>> {
     return this.http.get<Array<CustomerDTO>>('http://localhost:8080/customer');
