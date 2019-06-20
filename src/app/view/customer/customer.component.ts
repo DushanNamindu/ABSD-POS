@@ -39,10 +39,10 @@ export class CustomerComponent implements OnInit {
       }
     ).subscribe(result => {
       if (result == null) {
+        this.getAllCustomers();
         alert('Customer Added Successfully');
-        // this.customerList.push(this.customerDto);
       } else {
-        alert('Failed');
+        alert('Customer Added Failed');
       }
     });
   }
@@ -58,7 +58,10 @@ export class CustomerComponent implements OnInit {
     this.customerService.updateCustomer(this.customerDto).subscribe(
       result => {
         if (result == null) {
+          this.getAllCustomers();
           alert('Customer Successfully Updated');
+        } else {
+          alert('Customer Update Failed');
         }
       });
   }

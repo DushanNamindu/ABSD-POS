@@ -1,30 +1,28 @@
 <div>
   <form>
-    <!--<div class="form-group">-->
-    <!--<label>Id</label>-->
-    <!--<input required name="txtId" class="form-control" type="text" placeholder="Id" minlength="5">-->
-    <!--</div>-->
+
     <div class="form-group">
       <label><b>Name</b></label>
-      <input required name="txtName" class="form-control" type="text" placeholder="Name" [(ngModel)]="customerDto.name"
-             pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
+      <input required name="txtName" class="form-control" type="text" placeholder="Name" [(ngModel)]="customerDto.name" pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
     </div>
+
     <div class="form-group">
       <label><b>Address</b></label>
-      <input required name="txtAddress" class="form-control" type="text" placeholder="Address"
-             [(ngModel)]="customerDto.address" pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
+      <input required name="txtAddress" class="form-control" type="text" placeholder="Address" [(ngModel)]="customerDto.address" pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
     </div>
+
     <div class="form-group">
       <label><b>Mobile</b></label>
-      <input required name="txtMobile" class="form-control" type="text" placeholder="Mobile"
-             [(ngModel)]="customerDto.mobile" pattern="[0][0-9]{9}">
+      <input required name="txtMobile" class="form-control" type="text" placeholder="Mobile" [(ngModel)]="customerDto.mobile" pattern="[0][0-9]{9}">
     </div>
+
     <button type="submit" class="btn btn-outline-primary" (click)="addCustomer()">Add Customer</button>
     &nbsp;
     <button type="button" class="btn btn-outline-success" *ngIf="isEdit" id="btnUpdate" (click)="updateCustomer()">Update Customer</button>
     &nbsp;
     <button type="button" class="btn btn-outline-danger" *ngIf="isEdit" id="btnDelete">Delete Customer</button>
   </form>
+
 </div>
 
 <br>

@@ -49,7 +49,7 @@ const routes: Routes = [
     OrderComponent,
     ViewAllComponent,
     DashboardComponent,
-    SideBarComponent
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,

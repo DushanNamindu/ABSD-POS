@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {CustomerDTO} from '../dto/customer-dto';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class CustomerService {
   }
 
   addCustomer(customerDTO: CustomerDTO): Observable<CustomerDTO> {
-    console.log(JSON.stringify(customerDTO));
+    // console.log(JSON.stringify(customerDTO));
     return this.http.post<CustomerDTO>('http://localhost:8080/customer', customerDTO);
   }
 

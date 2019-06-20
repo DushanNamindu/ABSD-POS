@@ -1,22 +1,24 @@
 <div>
   <form>
     <div class="form-group">
-      <label for="exampleInputEmail1"><b>Code</b></label>
-      <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Code">
+      <label><b>Name</b></label>
+      <input required name="txtName" class="form-control" type="text" placeholder="Name" [(ngModel)]="itemDTO.name"
+             pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1"><b>Description</b></label>
-      <input type="password" class="form-control" id="exampleInputPassword" placeholder="Description">
+      <label><b>Description</b></label>
+      <input required name="txtDescription" class="form-control" type="text" placeholder="Description"
+             [(ngModel)]="itemDTO.description" pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1"><b>Qty.</b></label>
-      <input type="password" class="form-control" id="exampleInputPasswor" placeholder="Qty.">
+      <label><b>Qty.</b></label>
+      <input required name="txtPrice" class="form-control" type="text" placeholder="Qty." [(ngModel)]="itemDTO.price">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1"><b>Price</b></label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Price">
+      <label><b>Price</b></label>
+      <input required name="txtQty" class="form-control" type="text" placeholder="Price" [(ngModel)]="itemDTO.qty">
     </div>
-    <button type="submit" class="btn btn-outline-primary">Add Item</button>
+    <button type="submit" class="btn btn-outline-primary" (click)="addItem()">Add Item</button>
     &nbsp;
     <button type="submit" class="btn btn-outline-success">Update Item</button>
     &nbsp;
@@ -28,17 +30,23 @@
 <br>
 
 <div>
-  <table class="table">
+  <table class="table table-hover table-bordered">
     <thead class="thead-dark">
     <tr>
       <th scope="col">Code</th>
+      <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">Qty.</th>
       <th scope="col">Price (Rs.)</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr *ngFor="let item of itemList">
+      <th>{{item.code}}</th>
+      <th>{{item.name}}</th>
+      <th>{{item.description}}</th>
+      <th>{{item.price}}</th>
+      <th>{{item.qty}}</th>
     </tr>
     </tbody>
   </table>
