@@ -77,4 +77,20 @@ export class ItemComponent implements OnInit {
     });
   }
 
+  deleteItem(id: number) {
+    this.itemService.deleteItem(id).subscribe(relsult => {
+      if (relsult == null) {
+        this.itemDTO.name = '';
+        this.itemDTO.description = '';
+        this.itemDTO.price = '';
+        this.itemDTO.qty = '';
+        this.isEdit = false;
+        this.getAllItems();
+        alert('Item deleted successfully');
+      } else {
+        alert('Item deleted failed');
+      }
+    });
+  }
+
 }

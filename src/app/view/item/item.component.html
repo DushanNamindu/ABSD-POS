@@ -24,7 +24,7 @@
       Item
     </button>
     &nbsp;
-    <button type="submit" class="btn btn-outline-danger">Delete Item</button>
+    <button type="submit" class="btn btn-outline-danger" *ngIf="isEdit" (click)="deleteItem(itemDTO.code)">Delete Item</button>
   </form>
 </div>
 
