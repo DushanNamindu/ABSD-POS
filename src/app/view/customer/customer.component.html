@@ -20,7 +20,7 @@
     &nbsp;
     <button type="button" class="btn btn-outline-success" *ngIf="isEdit" id="btnUpdate" (click)="updateCustomer()">Update Customer</button>
     &nbsp;
-    <button type="button" class="btn btn-outline-danger" *ngIf="isEdit" id="btnDelete">Delete Customer</button>
+    <button type="button" class="btn btn-outline-danger" *ngIf="isEdit" id="btnDelete" (click)="deleteCustomer(customerDto.id)">Delete Customer</button>
   </form>
 
 </div>

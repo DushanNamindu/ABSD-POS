@@ -65,4 +65,15 @@ export class CustomerComponent implements OnInit {
         }
       });
   }
+
+  deleteCustomer(id: number) {
+    this.customerService.deleteCustomer(id).subscribe(relsult => {
+      if (relsult == null) {
+        this.getAllCustomers();
+        alert('Customer deleted successfully');
+      } else {
+        alert('Customer deleted failed');
+      }
+    });
+  }
 }

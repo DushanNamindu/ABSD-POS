@@ -33,6 +33,7 @@ export class ItemComponent implements OnInit {
       }
     ).subscribe(result => {
       if (result == null) {
+        this.getAllItems();
         alert('Item Added Successfully');
       } else {
         alert('Item Added Failed');

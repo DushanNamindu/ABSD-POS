@@ -27,4 +27,7 @@ export class CustomerService {
     return this.http.put<CustomerDTO>('http://localhost:8080/customer', customerDTO);
   }
 
+  deleteCustomer(id: number): Observable<boolean> {
+    return this.http.delete<boolean>('http://localhost:8080/customer' + '?id=' + id);
+  }
 }
