@@ -39,6 +39,9 @@ export class CustomerComponent implements OnInit {
       }
     ).subscribe(result => {
       if (result == null) {
+        this.customerDto.name = '';
+        this.customerDto.address = '';
+        this.customerDto.mobile = '';
         this.getAllCustomers();
         alert('Customer Added Successfully');
       } else {
@@ -58,6 +61,9 @@ export class CustomerComponent implements OnInit {
     this.customerService.updateCustomer(this.customerDto).subscribe(
       result => {
         if (result == null) {
+          this.customerDto.name = '';
+          this.customerDto.address = '';
+          this.customerDto.mobile = '';
           this.getAllCustomers();
           alert('Customer Successfully Updated');
         } else {
@@ -69,6 +75,9 @@ export class CustomerComponent implements OnInit {
   deleteCustomer(id: number) {
     this.customerService.deleteCustomer(id).subscribe(relsult => {
       if (relsult == null) {
+        this.customerDto.name = '';
+        this.customerDto.address = '';
+        this.customerDto.mobile = '';
         this.getAllCustomers();
         alert('Customer deleted successfully');
       } else {
